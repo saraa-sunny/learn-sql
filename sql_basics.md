@@ -50,7 +50,7 @@ FROM departments;
 | Los Angelas  |
 | Los Angelos  |
 
-
+<br>
 
 ## 🎀 WHERE
 This is used to extract only those records that fulfill a specified condition.
@@ -85,7 +85,54 @@ WHERE departmentname = 'HR';
 | LIKE      | Search for a pattern                                    |
 | IN        | To specify multiple possible values for a column       |
 
-## 🎀 AND, OR, NOT
+<br>
+
+## 🎀 AND, OR, NOT (Logical Operators)
+
+Logical operators allow you to combine multiple conditions inside a WHERE clause.
+
+#### 🔹AND  
+The AND operator displays a record if all the conditions are TRUE.
+```sql
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 AND condition2 AND condition3 ...;
+```
+For example,
+```sql
+SELECT *
+FROM departments
+WHERE location = 'Chicago' AND departmentname = 'Sales' ;
+```
+| departmentid | departmentname | location |
+|--------------|----------------|----------|
+| 102          | Sales          | Chicago  |
+| 104          | Sales          | Chicago  |
+
+#### 🔹OR  
+The OR operator displays a record if any of the conditions are TRUE.
+```sql
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 OR condition2 OR condition3 ...;
+```
+
+For example,
+```sql
+SELECT *
+FROM departments
+WHERE location = 'Chicago' OR location = 'New York' ;
+```
+| departmentid | departmentname | location   |
+|--------------|----------------|------------|
+| 101          | Engineering    | New York   |
+| 102          | Sales          | Chicago    |
+| 104          | Sales          | Chicago    |
+| 108          | Engineering    | Chicago    |
+| 107          | HR             | New York   |
+| 106          | HR             | New York   |
+
+<br>
 
 ## 🎀 ORDER BY
 ORDER BY sorts results ascending (ASC) or descending (DESC)
@@ -149,6 +196,8 @@ ORDER BY departmentname ASC, location DESC;
 | 102          | Sales          | Chicago      |
 | 104          | Sales          | Chicago      |
 
+<br>
+
 ## 🎀 LIMIT  
 LIMIT restricts the number of rows returned.  
 For example,
@@ -162,6 +211,8 @@ LIMIT 3;
 | 101          | Engineering    | New York     |
 | 102          | Sales          | Chicago      |
 | 103          | HR             | Los Angeles  |
+
+<br>
 
 ## 🎀 GROUP BY
 The GROUP BY statement groups rows that have the same values.
@@ -189,6 +240,7 @@ GROUP BY departmentname;
 | Engineering    | 1         |
 | Sales          | 2         |
 
+<br>
 
 ## 🎀 HAVING  
 
@@ -214,3 +266,9 @@ HAVING
 | Engineering    | 1         |
 | Sales          | 2         |
 
+💡 Difference between HAVING and WHERE
+* WHERE = filter raw rows
+* GROUP BY = create summary groups
+* HAVING = filter final grouped summaries
+
+You must have a GROUP BY to use HAVING.
