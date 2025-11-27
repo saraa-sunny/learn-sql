@@ -1,4 +1,6 @@
-# SQL  Basics 
+# SQL Queries
+
+
 
 ## 🎀SELECT
 This is used to select data from a database.
