@@ -101,7 +101,7 @@ WHERE condition;
 
 <br>
 
-## 4️⃣ AVG()  
+## 5️⃣ AVG()  
 The AVG() function returns the average value of a numeric column.
 Syntax
 ```sql
@@ -111,3 +111,7 @@ WHERE condition;
 ```
 
 <br>
+
+### 🧠 Quick Rule to Remember  
+Whenever you use SUM, COUNT, AVG, MIN, MAX:  
+👉 Every other column in SELECT must be in GROUP BY.
