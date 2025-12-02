@@ -1,4 +1,6 @@
-# ⭐ Learn SQL 
+# ⭐ Learn SQL  
+
+Hi! Welcome to my SQL learning repo 👋  
 
 This is my personal SQL learning notes collection.
 It contains simple explanations, syntax, examples, and output tables while I learn SQL using PostgreSQL.  
