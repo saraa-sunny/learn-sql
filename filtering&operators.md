@@ -1,42 +1,19 @@
-# 🎀 Filtering Rows - WHERE, AND, OR, IN, BETWEEN, LIKE
+# 🎀 Filtering & Operators 
 
 ## 📑 Table of Contents
-1. WHERE
-2. Logical Operators - AND, OR, NOT
+1. AND,OR,NOT
 3. IN
-4. BETWEEN
-5. LIKE
-6. Comparison Operators
-
-## 1️⃣ WHERE  
-This is used to extract only those records that fulfill a specified condition.
-
-✏️ Syntax
-```sql
-# WHERE query to filter records
-SELECT column1, column2, ...
-FROM table_name
-WHERE condition;
-```
-
-📝 For example,
-```sql
-SELECT *
-FROM departments
-WHERE departmentname = 'HR';
-```
-
-| departmentid | departmentname | location     |
-|--------------|----------------|--------------|
-| 103          | HR             | Los Angeles  |
-| 107          | HR             | New York     |
-| 106          | HR             | New York     |
+4. NOT IN
+5. BETWEEN
+6. LIKE
+7.  IS NULL / IS NOT NULL
 
 <br>
 
-## 2️⃣ Logical Operators
+## 1️⃣ AND/ OR/ NOT 
 
-### 🔹 AND
+### 🔹AND
+
 The AND operator displays a record if all the conditions are TRUE.
 
 ✏️ Syntax
@@ -88,7 +65,7 @@ WHERE location = 'Chicago' OR location = 'New York' ;
 
 <br>
 
-## 3️⃣ IN  
+## 2️⃣ IN  
 The IN operator in SQL is used to filter query results by checking whether a column’s value matches any value in a specified list. The IN operator is a shorthand for multiple OR conditions.   
 
 💡 The IN operator returns true if a value is in a set of values or false otherwise.  
@@ -120,8 +97,9 @@ select *
 FROM departments
 WHERE departmentname='HR' OR departmentname='Sales';
 ```
+<br>
 
-#### 📌NOT IN
+## 3️⃣NOT IN
 The NOT operator can be combined with IN to exclude specific values in a WHERE clause.
 ✏️Syntax
 ```sql
@@ -200,7 +178,7 @@ WHERE departmentname LIKE 'Eng%' ;
 
 <br>
 
-## 6️⃣Comparison Operators
+## Comparison Operators
 
 | Operator  | Description                                             |
 |-----------|---------------------------------------------------------|
