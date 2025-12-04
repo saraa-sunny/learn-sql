@@ -15,7 +15,7 @@ This is used to select data from a database.
 ### 🔹SELECT specific columns   
 ✏️ Syntax
 ```sql
-# Select query for a specific columns
+-- Select query for a specific columns
 SELECT column1, column2, ...
 FROM table_name;
 ```
@@ -40,7 +40,7 @@ This is used to return all columns.
 
 ✏️ Syntax
 ```sql
-# Select query for all columns
+-- Select query for all columns
 SELECT * 
 FROM table_name;
 ```
@@ -51,7 +51,7 @@ This is used to extract only those records that fulfil a specified condition.
 
 ✏️ Syntax
 ```sql
-# WHERE query to filter records
+--  WHERE query to filter records
 SELECT column1, column2, ...
 FROM table_name
 WHERE condition;
@@ -77,7 +77,7 @@ ORDER BY sorts results ascending (ASC) or descending (DESC)
 
 ✏️Syntax
 ```sql
-# ORDER BY to sort results
+-- ORDER BY to sort results
 SELECT column1, column2, ...
 FROM table_name
 ORDER BY column1, column2, ... ASC|DESC;
@@ -115,7 +115,7 @@ ORDER BY can sort more than one column.
 
 ✏️Syntax
 ```sql
-# ORDER BY to sort several columns
+-- ORDER BY to sort several columns
 SELECT column1, column2, ...
 FROM table
 ORDER BY column1 [ASC|DESC], column2 [ASC|DESC], ...;
@@ -147,7 +147,7 @@ This is used to return only distinct (different) values, we use SELECT DISTINCT,
 
 ✏️ Syntax
 ```sql
-# Select query for all columns
+-- Select query for all columns
 SELECT DISTINCT column1, column2, ...
 FROM table_name;
 ```
