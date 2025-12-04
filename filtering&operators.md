@@ -234,7 +234,9 @@ For example, if you don’t know the phone numbers of employees when you save th
 
 📌 An alternative to NULL values in your database is to have data-type appropriate default values, like 0 for numerical data, empty strings for text data, etc.
 
-🧠 It is not possible to test for NULL values with comparison operators, such as =, <, or <>. We will have to use the IS NULL and IS NOT NULL operators instead.  
+🧠 It is not possible to test for NULL values with comparison operators, such as =, <, or <>. We will have to use the IS NULL and IS NOT NULL operators instead. 
+
+🧠 You cannot use the equal to (=) to check if a value is NULL or not.  
 
 ### 🔹 IS NULL  
 The IS NULL operator is used to test for empty values (NULL values).
