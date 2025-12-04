@@ -5,7 +5,7 @@ A JOIN clause is used to combine data from two or more tables, based on a relate
 <br>
 
 ## Different Types of SQL JOINs
-Here are the different types of the JOINs in SQL:
+Here are the main types of the JOINs in SQL:
 
 * (INNER) JOIN: Returns records that have matching values in both tables
 * LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table
@@ -149,6 +149,7 @@ INNER is the default join type for JOIN, so when you write JOIN the parser actua
 <br>
 
 ## 2️⃣LEFT JOIN  
+
 A LEFT JOIN returns all rows from the left table, along with matching rows from the right table. If there is no match, NULL values are returned for columns from the right table.  
 It is also known as LEFT OUTER JOIN.
 
@@ -197,6 +198,7 @@ If a department has no projects, the project columns return NULL instead of bein
 <br>
 
 ## 3️⃣ RIGHT JOIN  
+
 RIGHT JOIN returns all the rows of the table on the right side of the join and matching rows for the table on the left side of the join.It is very similar to LEFT JOIN for the rows for which there is no matching row on the left side, the result-set will contain null.  
 RIGHT JOIN is also known as RIGHT OUTER JOIN.  
 
@@ -247,13 +249,14 @@ FROM
   RIGHT JOIN right_table ON right_table.column1 = left_table_column2
 WHERE column2 IS NULL;
 ```
-For Example,
+For example,
 ```sql
 ```
 
 <br>
 
 ## 4️⃣ FULL JOIN  
+
 The FULL OUTER JOIN keyword returns all records when there is a match in left (table1) or right (table2) table records.  
 Syntax  
 ```sql
@@ -293,10 +296,105 @@ ON d.departmentid = p.departmentid;
 
 <br>
 
-##  5️⃣ SELF JOIN
+##  5️⃣ SELF JOIN  
+
+Typically, you use a join such as inner join, left join, and right join to merge rows from two tables based on a condition.
+
+However, a join doesn’t have to involve multiple tables. You can use a join to compare rows within the same table. In this case, you join a table to itself that forms a self-join.  
+
+A self-join is a join that compares the rows within the same table. A self-join uses an inner join, left join, or right join that joins a table to itself. It uses table aliases to treat the same table as separate tables within the same query.  
+
+```sql
+SELECT
+  select_list
+FROM
+  table1 t1
+  INNER JOIN table1 AS t2 ON t1.column1 = t2.column2;
+```
+
+🧠 In this syntax, you can use the LEFT JOIN, RIGHT JOIN, and FULL JOIN instead of the INNER JOIN.
+
+For example,
+```sql
+SELECT 
+	  p1.projectname,
+    p1.projectid,  
+    p1.departmentid
+FROM projects p1
+JOIN projects p2
+    ON p1.projectname = p2.projectname
+	AND p1.projectid <> p2.projectid
+ORDER BY p1.projectname;
+```
+| projectname       | projectid | departmentid |
+|-------------------|-----------|---------------|
+| Sales Automation  | 202       | 102           |
+| Sales Automation  | 205       | 105           |
+| Website Revamp    | 201       | 101           |
+| Website Revamp    | 206       | 106           |
 
 <br>
 
-## 6️⃣ CROSS JOIN
+## 6️⃣ CROSS JOIN  
+
+The CROSS JOIN clause allows you to create combinations of all rows from two tables.
+
+Syntax
+```sql
+SELECT
+  select_list
+FROM
+  table1
+  CROSS JOIN table2;
+```
+
+Unlike a left join, right join, inner join, and full join, the cross join does not have a condition.  
+
+The CROSS JOIN clause merges every row from the first table (table1) with every row in the second table (table2). It returns a result set that includes all possible combinations of the rows in both tables.  
+
+The result set of a CROSS JOIN is often called the Cartesian product of two tables.
+
+For example,
+```sql
+SELECT 
+	e.employeeid,
+	e.role,
+	p.projectid,
+	p.projectname
+FROM employee_projects e
+CROSS JOIN projects p;
+```
+| roleid | rolename        | projectid | projectname      |
+|--------|------------------|-----------|-------------------|
+| 1      | Developer        | 201       | Website Revamp    |
+| 1      | Developer        | 202       | Sales Automation  |
+| 1      | Developer        | 203       | Employee Training |
+| 1      | Developer        | 206       | Website Revamp    |
+| 1      | Developer        | 205       | Sales Automation  |
+| 1      | Developer        | 204       | Website Build     |
+| 2      | Sales Lead       | 201       | Website Revamp    |
+| 2      | Sales Lead       | 202       | Sales Automation  |
+| 2      | Sales Lead       | 203       | Employee Training |
+| 2      | Sales Lead       | 206       | Website Revamp    |
+| 2      | Sales Lead       | 205       | Sales Automation  |
+| 2      | Sales Lead       | 204       | Website Build     |
+| 3      | QA Tester        | 201       | Website Revamp    |
+| 3      | QA Tester        | 202       | Sales Automation  |
+| 3      | QA Tester        | 203       | Employee Training |
+| 3      | QA Tester        | 206       | Website Revamp    |
+| 3      | QA Tester        | 205       | Sales Automation  |
+| 3      | QA Tester        | 204       | Website Build     |
+| 4      | HR Specialist    | 201       | Website Revamp    |
+| 4      | HR Specialist    | 202       | Sales Automation  |
+| 4      | HR Specialist    | 203       | Employee Training |
+| 4      | HR Specialist    | 206       | Website Revamp    |
+| 4      | HR Specialist    | 205       | Sales Automation  |
+| 4      | HR Specialist    | 204       | Website Build     |
+| 5      | Sales Associate  | 201       | Website Revamp    |
+| 5      | Sales Associate  | 202       | Sales Automation  |
+| 5      | Sales Associate  | 203       | Employee Training |
+| 5      | Sales Associate  | 206       | Website Revamp    |
+| 5      | Sales Associate  | 205       | Sales Automation  |
+| 5      | Sales Associate  | 204       | Website Build     |
 
 
